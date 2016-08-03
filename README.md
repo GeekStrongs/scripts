@@ -1,7 +1,7 @@
 # scripts
 --------------------------------------------------------------------
 Testados no Ubuntu e Debian!
-Para mais informações visite o canal visite esse canal no Telegram
+Para mais informações visite esse canal no Telegram
 --------------------------------------------------------------------
 -> Grupo PR1V8 <-
 Grupo Oficial do canal PR1V8
