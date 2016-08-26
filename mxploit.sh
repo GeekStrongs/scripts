@@ -1,4 +1,5 @@
 #!/bin/bash
+# Script básico que explora uma em sistemas de login da Micro Login System v 1.0
 echo "
  __  __      ____  _       _ _
 |  \/  |_  _|  _ \| | ___ (_) |_
