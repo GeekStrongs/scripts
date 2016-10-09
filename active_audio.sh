@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script simples que ativa o áudio na nova versão do Kali Linux
+# Script simples que ativa o áudio na nova versão do Kali Linux 2016.2
 # Developer: Derxs
 sleep 2
 clear
