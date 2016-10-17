@@ -1,5 +1,6 @@
 #!/bin/bash
-Menu(){
+# Developer: Derxs
+# Version: 1.0
 clear
 sleep 2
 echo "
@@ -65,4 +66,3 @@ else
 	 fi
 fi
 }
-Menu
