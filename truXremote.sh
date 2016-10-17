@@ -1,6 +1,7 @@
 #!/bin/bash
 # Developer: Derxs
-# Version: 1.0
+# Version: 1.1
+Menu(){
 clear
 sleep 2
 echo "
@@ -66,3 +67,4 @@ else
 	 fi
 fi
 }
+Menu
